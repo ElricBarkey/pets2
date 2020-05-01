@@ -1,0 +1,18 @@
+{
+  "name": "ebarkey/328/pets2",
+  "authors":
+  [
+    {
+      "name": "Elric Barkey",
+      "email": "ebarkey2@greenriver.edu"
+    },
+    {
+      "name": "John Laygo",
+      "email": "jlaygo@mail.greenriver.edu"
+    }
+  ],
+  "require":
+  {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
