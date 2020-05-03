@@ -22,8 +22,25 @@ $f3->route('GET /', function()
     echo $view->render('views/pet-home.html');
 });
 
-$f3->route('GET /order', function()
+$f3->route('GET|POST /order', function($f3)
 {
+    // check if the form has been posted
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // validate the data
+        if (empty($_POST['pet'])) {
+            echo "Please supply a pet type";
+        } else {
+            // data is valid
+            $_SESSION['pet'] = $_POST['pet'];
+
+            // ***add the color to the session
+            $_SESSION['color'] = $_POST['color'];
+
+            // redirect to the summary route
+            $f3->reroute("summary");
+        }
+    }
+
     $view = new Template();
     echo $view->render('views/pet-order.html');
 });
