@@ -38,11 +38,21 @@ $f3->route('GET|POST /order', function($f3)
 
             // redirect to the summary route
             $f3->reroute("summary");
+            session_destroy();
         }
     }
 
     $view = new Template();
     echo $view->render('views/pet-order.html');
+});
+
+//summary of pets order
+$f3->route('GET /summary', function()
+{
+    $view = new Template();
+    echo $view->render('views/order-summary.html');
+    //var_dump($_SESSION);
+
 });
 
 //run f3
